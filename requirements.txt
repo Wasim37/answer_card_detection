@@ -1,11 +1,13 @@
+# 安装顺序
+conda                     4.5.12
+opencv-python             4.5.2.52 
 python                    3.7.1                
 imutils                   0.5.4    
 cnocr                     1.2.2 
-opencv-python             4.5.2.52 
 
 
 
-PS F:\git_ml\answer_card_detection> conda list
+PS F:\git_ml\teaching-answer-card-service> conda list
 # packages in environment at D:\ProgramData\Anaconda3:
 #
 # Name                    Version                   Build  Channel

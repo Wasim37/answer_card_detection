@@ -3,3 +3,4 @@
 *.pyc
 *.vscode
 *.ipynb_checkpoints
+*.idea

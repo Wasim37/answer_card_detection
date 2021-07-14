@@ -1,79 +1,24 @@
 '''
 Author: wangxin
 Date: 2021-05-25 10:31:52
-LastEditTime: 2021-05-28 17:57:54
+LastEditTime: 2021-07-01 17:04:28
 LastEditors: Please set LastEditors
 Description: In User Settings Edit
 '''
 
 # coding=utf-8
-import numpy as np
 
-# 选项
-CHOICES = "ABCDE"
+# 图片中的答题卡框数量. 比如一张图片可以划分为左右2个答题卡框
+ANSWER_CARD_SIZE = 2
 
-# 一行选项+题号列数，例如一行有3题，一题4个选项，所以总共有3*4+3个列
-CHOICE_COL_COUNT = 18
+# 答题卡框的最小宽度
+ANSWER_CARD_MIN_WIDTH = 1200
 
-# 每题题选项数
-CHOICES_PER_QUE = 5
+# 大标题序号
+TITLE_NUM = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二', '十三', '十四', '十五', '十六', '十七']
 
-# 每个选项框里面白色点所占比例阈值，小于则说明该选项框可能被填涂
-WHITE_RATIO_PER_CHOICE = 0.80
+# 识别左上角大标题序号, 识别范围的宽
+TITLE_TOP_LEFT_CORNER_WIDTH = 50
 
-# 受限于环境，光源较差的情况下或腐蚀膨胀参数设置不对，
-# 可能会有误判，这个参数这是比较两个都被识别为涂写的选项框是否有误判的阈值
-MAYBE_MULTI_CHOICE_THRESHOLD = 0.07
-
-# 答题卡框与整个图片周长比的阈值
-CNT_PERIMETER_THRESHOLD = 0.35
-
-# 答题卡框面积阈值
-SHEET_AREA_MIN_RATIO = 0.7
-
-# 识别所涂写区域时的二值化参数
-ANS_IMG_THRESHOLD = (88, 255)
-
-# 识别所涂写区域时的膨胀参数
-ANS_IMG_DILATE_ITERATIONS = 9
-
-# 识别所涂写区域时的腐蚀参数
-ANS_IMG_ERODE_ITERATIONS = 0
-
-# 识别所涂写区域时的膨胀腐蚀的kernel
-ANS_IMG_KERNEL = np.ones((2, 2), np.uint8)
-
-# 识别所有选项框区域时的二值化参数
-CHOICE_IMG_THRESHOLD = (115, 255)
-
-# 识别所有选项框区域时的膨胀参数
-CHOICE_IMG_DILATE_ITERATIONS = 6
-
-# 识别所有选项框区域时的腐蚀参数
-CHOICE_IMG_ERODE_ITERATIONS = 3
-
-# 识别所有选项框区域时的膨胀腐蚀的kernel
-CHOICE_IMG_KERNEL = np.ones((2, 2), np.uint8)
-
-# 选项框面积的阈值，超过则认为这个轮廓不是选项框
-CHOICE_MAX_AREA = 400
-
-# 选项框面积的阈值，小于则认为这个轮廓不是选项框
-CHOICE_MIN_AREA = 100
-
-# 总共选项框 + 题号的个数，例如一行3题，总共20列，所以有3 * 20 * 4 + 3 * 20
-CHOICE_CNT_COUNT = 51 * 6
-
-# 调整亮度的竖向分块数目
-PROCESS_BRIGHT_COLS = 18
-
-# 调整亮度的横向分块数目
-PROCESS_BRIGHT_ROWS = 16
-
-# 调整亮度值
-BRIGHT_VALUE = 120
-
-test_ans = ['A', 'AD', 'BD', 'AC', 'B', 'BD', 'A', '', 'AD', 'D', '', '', 'B', 'A', 'A', 'A', 'B', 'B', 'B', 'B', 'A',
-            'B', 'A', 'A', 'A', 'B', 'B', 'B', 'B', 'B', '', '']
-
-ORIENT_CODE = {'col': 1, 'row': 0}
+# 识别左上角大标题序号, 识别范围的高
+TITLE_TOP_LEFT_CORNER_HEIGTH = 65

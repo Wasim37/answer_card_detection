@@ -1,5 +1,7 @@
 import numpy as np
 import cv2
+import matplotlib.pyplot as plt
+from settings import TITLE_TOP_LEFT_CORNER_WIDTH, TITLE_TOP_LEFT_CORNER_HEIGTH
 from imutils import auto_canny
 
 
@@ -143,19 +145,35 @@ def capture_img(origin_image_path, target_image_path, contour):
     cv2.imwrite(target_image_path, image[y:y + h, x:x + w])
 
 
+def save_img_by_cnts(save_image_path, image_size, cnts):
+    """通过提取的轮廓绘制图片并保存
+
+    Args:
+        save_image_path ([type]): 图片存储路径
+        image ([type]): 绘制的图片尺寸, 长与宽
+        cnts ([type]): 轮廓列表
+    """
+    black_background = np.ones(image_size, np.uint8) * 0
+    cv2.drawContours(black_background, cnts, -1, (255, 255, 255), 2)
+    plt.figure(figsize=(10, 5))
+    plt.imshow(black_background)
+    plt.axis('off')
+    plt.savefig(save_image_path)
+
+
 def ocr_single_line_img(image_path, ocr):
     """ocr识别图片
 
     Args:
         origin_image_path ([type]): 原始图片路径
-        ocr ([type]): 
+        ocr ([type]): ocr
 
     Returns:
         [type]: [description]
     """
 
     image = cv2.imread(image_path)
-    res = ocr.ocr_for_single_line(image[0:50, 0:65])
+    res = ocr.ocr_for_single_line(image[0:TITLE_TOP_LEFT_CORNER_WIDTH, 0:TITLE_TOP_LEFT_CORNER_HEIGTH])
     if len(res) > 0 and res[0] == '-':
         res[0] = '一'
     return res

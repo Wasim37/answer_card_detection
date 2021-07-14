@@ -1,17 +1,20 @@
 '''
 Author: wangxin
 Date: 2021-05-25 12:12:52
-LastEditTime: 2021-05-28 17:54:42
+LastEditTime: 2021-07-01 14:00:58
 LastEditors: Please set LastEditors
 Description: In User Settings Edit
 '''
 
 from flask import Flask
 
+
 app = Flask(__name__)
+
+
 @app.route('/detection', methods=["POST"])
 def answer_card_detection():
-    return "get_answer_from_sheet"
+    return "我是一个接口"
 
 
 # python3 -m flask run

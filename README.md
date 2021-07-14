@@ -1,3 +1,3 @@
-# teaching-answer-card-service
+# teaching-answer-card-tool
 
-答题卡检测服务
+答题卡检测

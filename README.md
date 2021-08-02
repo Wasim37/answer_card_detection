@@ -10,24 +10,25 @@
 ### 2、试题切割
 功能：
 - 将答题卡按试题切成一张张图片，并将图片与题序一一对应
- 程序能知道第六大题存在2张图片
+- 程序能知道第六大题存在2张图片
 
-第一题：
+程序执行结果：
+第一题
 ![](pic/sub_answer_card_1.jpg)
 
-第二题：
+第二题
 ![](pic/sub_answer_card_2.jpg)
 
-第三题：
+第三题
 ![](pic/sub_answer_card_3.jpg)
 
-第四题：
+第四题
 ![](pic/sub_answer_card_4.jpg)
 
-第五题：
+第五题
 ![](pic/sub_answer_card_5.jpg)
 
-第六题（程序能知道第六大题存在2张图片）：
+第六题（程序能知道第六大题存在2张图片）
 ![](pic/sub_answer_card_6.jpg)
 
 ![](pic/sub_answer_card_7.jpg)
